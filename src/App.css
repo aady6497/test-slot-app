@@ -1,0 +1,170 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+body { 
+  background-color: #292929;
+}
+
+#repeatButton {
+  appearance: none;  
+  border: none;
+  background: url(https://andyhoffman.codes/random-assets/img/slots/repeat.png) transparent 0 0 no-repeat;
+  background-size: cover;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 10px;
+  right: 20px; 
+  cursor: pointer;
+  animation: 6s linear infinite spin;
+}
+
+h1 {  
+  font-size: 150%;
+  padding: 0.25em .5em;  
+  font-family: 'Cairo', sans-serif;
+}
+
+h1 span {
+  color: aliceblue;
+  border: 1px solid hsla(208, 100%, 97.1%, .2);
+  padding: 0.1em .2em;  
+}
+
+.icons { 
+  display: inline-block;
+  width: 500px;
+  height: 1500px;
+  overflow: hidden;
+  /*background: #fff url(https://andyhoffman.codes/random-assets/img/slots/sprite5.png) repeat-y; */
+
+  background: #fff url("reels/reels1.png") repeat-y;
+
+  will-change: backgroundPosition;
+  transition: 0.3s background-position ease-in-out;
+  padding: 0 75px;
+  transform: translateZ(0);
+}
+
+.icons:nth-child(2) {
+  margin: 0px 0px;
+}
+
+* { box-sizing: border-box; }
+
+.spinner-container {
+  overflow: hidden;
+  height: 1500px;  
+  padding: 2em;
+  transform: translate(-50%, -50%) scale(1, 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transition: .3s transform;
+}
+
+.app-wrap.winner-false {
+  animation: linear 1s spin;
+}
+
+.spinner-container::after {
+  position: absolute;
+  content: '';
+  display: block;
+  height: 500px;
+  top: 52.5%;
+  transform: translateY(-50%);
+  right: 30px;
+  left: 30px;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 15px;
+  -webkit-animation: glowing 1s ease-in-out infinite alternate;
+  -moz-animation: glowing 1s ease-in-out infinite alternate;
+  animation: glowing 1s ease-in-out infinite alternate;
+  -moz-border-radius: 15px; 
+-webkit-border-radius: 15px; 
+}
+
+
+.gradient-fade {
+  position: absolute;
+  top: 0px;
+  right: 32px;
+  bottom: 0px;
+  left: 32px;
+  background: linear-gradient(
+    to bottom, 
+    rgba(64,0,64,1) 0%, 
+    rgba(64,56,64,0) 7%, 
+    rgba(64,128,64,0) 93%, 
+    rgba(64,196,64,1) 100%
+  );
+}
+
+@media screen and (max-width: 1000px) {
+  .spinner-container {
+    transform: translate(-50%, -50%) scale(.55, .55);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .spinner-container {
+    transform: translate(-50%, -50%) scale(.4, .4);
+  }
+}
+
+
+@keyframes glowing {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgb(255, 238, 0), 0 0 40px #0ff, 0 0 50px #e6bc00, 0 0 60px #e60073, 0 0 70px #e69d00;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ffb84d, 0 0 50px #ff4da6, 0 0 60px #ffc14d, 0 0 70px #ff4da6, 0 0 80px #ff9d4d;
+  }
+}
